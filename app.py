@@ -96,4 +96,6 @@ print(proxy)
 print(http)
 print(https)
 amz_s = requests.get(amz_url, headers=headers, proxies={"http": http, "https": https}, verify=False).text
-print(amz_s)
+amz_soup = BeautifulSoup(amz_s)
+name = amz_soup.select("span.a-size-medium")
+print(name)
